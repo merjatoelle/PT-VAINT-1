@@ -1499,13 +1499,4 @@ class TaylorDiagram(object):
         return contours
 
 
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      
