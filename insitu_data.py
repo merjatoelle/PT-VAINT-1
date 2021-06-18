@@ -449,9 +449,4 @@ if calc == 'yes':
 else:
     print('The initial data are not needed')
 
-
-
-
-
-
-   
+  
