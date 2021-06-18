@@ -328,4 +328,3 @@ def stat_cosmo(clm_name, df_ctr, df_mod):
     
     return df_stat_cosmo
 
-
