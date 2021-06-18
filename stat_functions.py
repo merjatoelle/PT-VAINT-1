@@ -379,9 +379,3 @@ def DAV_analysis(path_main, fn_region,  par_list, refer, ds_name):
 
 
 
-
-
-
-
-
-
