@@ -370,34 +370,3 @@ def hourly_data(t_1h, t_2h, data):
     data_d = data_d.mean(axis = 1) 
     return data_d
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
