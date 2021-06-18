@@ -302,9 +302,3 @@ def eobs_data(main_path, sf_path, domain):
 
 
 
-
-    
- 
-
-    
-
