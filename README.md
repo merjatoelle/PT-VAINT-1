@@ -13,7 +13,7 @@
 2. The module with constant PFT parameters and other constants for CCLM<sub>v3.5</sub>
     * src_data_phenology.f90
 3. The two scipts for work with COSMO-CLM results:
-    * main.sh - postprocessing of COSMO-CLM parameters for verification and analysis 
+    * [main.sh][main_ini] - postprocessing of COSMO-CLM parameters for verification and analysis 
     * bonus.sh - postprocessing of COSMO-CLM parameters for additional tests, future developments
 4. The new ***Python*** project, with statistical and visualization modules:
     * [CESR_project.py][cesr] and [stat_module][main] - the main programms for verification, statistical analysis and visualization of COSMO-CLM results:  
@@ -35,3 +35,4 @@
 [insitu]: https://github.com/EvgenyChur/PT-VAINT/blob/main/insitu_data.py
 [rean]: https://github.com/EvgenyChur/PT-VAINT/blob/main/reanalysis_data.py  
 [cosmo]: https://github.com/EvgenyChur/PT-VAINT/blob/main/cosmo_data.py
+[main_ini]: https://github.com/EvgenyChur/PT-VAINT/blob/main/main_ini.sh
