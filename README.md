@@ -20,7 +20,7 @@
         + cosmo_data.py - personal module for downloading and preparing COSMO data
         + [fluxnet_data.py][flux] - personal module for downloading and preparing FLUXNET and EURONET data
         + [insitu_data.py][insitu] - personal module for downloading and preparing data from Linden and Lindenberg
-        + reanalysis_data - personal module for downloading and preparing reanalysis data from E-OBS, HYRAS and GLEAM datasets
+        + [reanalysis_data][rean] - personal module for downloading and preparing reanalysis data from E-OBS, HYRAS and GLEAM datasets
         + [system_operation][sys] - personal module with a system functions for cleaning data
         + [vis_module][vis] - personal module for data visualization
         + [stat_functions][stat] - personal module for work with statistical analysis
@@ -33,3 +33,4 @@
 [stat]: https://github.com/EvgenyChur/PT-VAINT/blob/main/stat_functions.py
 [flux]: https://github.com/EvgenyChur/PT-VAINT/blob/main/fluxnet_data.py
 [insitu]: https://github.com/EvgenyChur/PT-VAINT/blob/main/insitu_data.py
+[rean]: https://github.com/EvgenyChur/PT-VAINT/blob/main/reanalysis_data.py  
