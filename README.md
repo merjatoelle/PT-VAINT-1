@@ -14,6 +14,11 @@
     * main.sh
     * bonus.sh
 4. The new *Python* project, with statistical and visualization modules:
-    * CESR_project.py - the main programm for verification of COSMO-CLM results
-    * stat_module.py - the main programm for statistical analysis ana visualization of COSMO-CLM results:
-        + h
+    * ***CESR_project.py*** and ***stat_module*** - the main programms for verification, statistical analysis and visualization of COSMO-CLM results:  
+        + cosmo_data.py - personal module for downloading and preparing COSMO data
+        + fluxnet_data.py - personal module for downloading and preparing FLUXNET and EURONET data
+        + insitu_data.py - personal module for downloading and preparing data from Linden and Lindenberg
+        + reanalysis_data - personal module for downloading and preparing reanalysis data from E-OBS, HYRAS and GLEAM datasets
+        + system_operation - personal module with a system functions for cleaning data
+        + vis_module - personal module for data visualization
+        + stat_functions - personal module for work with statistical analysis
