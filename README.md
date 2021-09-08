@@ -9,9 +9,9 @@
   
 ## The repository contains:
 1. The new module with stomatal resistance and leaf photosyntesis for CCLM<sub>v3.5</sub>
-    * src_phenology.f90
+    * [src_phenology.f90][phen]
 2. The module with constant PFT parameters and other constants for CCLM<sub>v3.5</sub>
-    * src_data_phenology.f90
+    * [src_data_phenology.f90][data]
 3. The postprocessing scipts for work with COSMO-CLM results:
     * [main.sh][main_ini] - postprocessing of COSMO-CLM parameters for verification and analysis 
     * [bonus.sh][bonus] - postprocessing of COSMO-CLM parameters for additional tests, future developments
@@ -50,3 +50,5 @@
 [E_py]: https://github.com/EvgenyChur/PT-VAINT/blob/main/EOBS_python.sh
 [H_py]: https://github.com/EvgenyChur/PT-VAINT/blob/main/HYRAS_python.sh
 [GL_pyt]: https://github.com/EvgenyChur/PT-VAINT/blob/main/GLEAM_python.sh
+[data]: https://github.com/EvgenyChur/PT-VAINT/blob/main/data_phenology.f90
+[phen]: https://github.com/EvgenyChur/PT-VAINT/blob/main/src_phenology.f90
