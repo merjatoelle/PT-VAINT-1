@@ -12,10 +12,17 @@
     * src_phenology.f90
 2. The module with constant PFT parameters and other constants for CCLM<sub>v3.5</sub>
     * src_data_phenology.f90
-3. The two scipts for work with COSMO-CLM results:
+3. The postprocessing scipts for work with COSMO-CLM results:
     * [main.sh][main_ini] - postprocessing of COSMO-CLM parameters for verification and analysis 
-    * bonus.sh - postprocessing of COSMO-CLM parameters for additional tests, future developments
-4. The new ***Python*** project, with statistical and visualization modules:
+    * [bonus.sh][bonus] - postprocessing of COSMO-CLM parameters for additional tests, future developments
+4. The preprocessing scripts for HYRAS, E-OBS, GLEAM datasets:
+    * EOBS_domain - interpolation of E-OBS data to COSMO-CLM grid
+    * HYRAS_domain - interpolation of HYRAS data to COSMO-CLM grid
+    * GLEAM_domain - interpolation of GLEAM data to COSMO-CLM grid
+    * EOBS_python - preprocessing E-OBS data for CESR_project.py and stat_module.py
+    * HYRAS_python - preprocessing HYRAS data for CESR_project.py and stat_module.py
+    * GLEAM_python - preprocessing GLEAM data for CESR_project.py and stat_module.py
+5. The new ***Python*** project, with statistical and visualization modules:
     * [CESR_project.py][cesr] and [stat_module][main] - the main programms for verification, statistical analysis and visualization of COSMO-CLM results:  
         + [cosmo_data.py][cosmo] - personal module for downloading and preparing COSMO data
         + [fluxnet_data.py][flux] - personal module for downloading and preparing FLUXNET and EURONET data
@@ -36,3 +43,4 @@
 [rean]: https://github.com/EvgenyChur/PT-VAINT/blob/main/reanalysis_data.py  
 [cosmo]: https://github.com/EvgenyChur/PT-VAINT/blob/main/cosmo_data.py
 [main_ini]: https://github.com/EvgenyChur/PT-VAINT/blob/main/main_ini.sh
+[bonus]: https://github.com/EvgenyChur/PT-VAINT/blob/main/bonus_ini.sh
