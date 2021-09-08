@@ -21,7 +21,7 @@
         + fluxnet_data.py - personal module for downloading and preparing FLUXNET and EURONET data
         + insitu_data.py - personal module for downloading and preparing data from Linden and Lindenberg
         + reanalysis_data - personal module for downloading and preparing reanalysis data from E-OBS, HYRAS and GLEAM datasets
-        + system_operation - personal module with a system functions for cleaning data
+        + [system_operation][sys] - personal module with a system functions for cleaning data
         + [vis_module][vis] - personal module for data visualization
         + stat_functions - personal module for work with statistical analysis
 
@@ -29,3 +29,4 @@
 [cesr]: https://github.com/EvgenyChur/PT-VAINT/blob/main/CESR_project.py  
 [main]: https://github.com/EvgenyChur/PT-VAINT/blob/main/stat_module.py  
 [vis]: https://github.com/EvgenyChur/PT-VAINT/blob/main/vis_module.py
+[sys]: https://github.com/EvgenyChur/PT-VAINT/blob/main/system_operation.py
