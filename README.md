@@ -9,10 +9,12 @@
   
 ## The repository contains:
 1. The new module with stomatal resistance and leaf photosyntesis for CCLM<sub>v3.5</sub>
+    * src_phenology.f90
 2. The module with constant PFT parameters and other constants for CCLM<sub>v3.5</sub>
+    * src_data_phenology.f90
 3. The two scipts for work with COSMO-CLM results:
-    * main.sh
-    * bonus.sh
+    * main.sh - postprocessing of COSMO-CLM parameters for verification and analysis 
+    * bonus.sh - postprocessing of COSMO-CLM parameters for additional tests, future developments
 4. The new *Python* project, with statistical and visualization modules:
     * ***CESR_project.py*** and ***stat_module*** - the main programms for verification, statistical analysis and visualization of COSMO-CLM results:  
         + cosmo_data.py - personal module for downloading and preparing COSMO data
