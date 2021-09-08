@@ -80,8 +80,7 @@ This research was funded by the German Research Foundation (DFG) through grant n
 
 
 <p align="justify">  
-  This is [an example](http://example.com/ "Title") inline link.
-  [This link](http://example.net/) has no title attribute.
+
   
   <p>This is <a href="http://example.com/" title="Title">
 an example</a> inline link.</p>
