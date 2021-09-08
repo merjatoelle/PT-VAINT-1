@@ -47,6 +47,16 @@ Evgenii Churiulin<sup>1</sup>, Vladimir Kopeikin<sup>2</sup>, Markus Übel<sup>3
         + [vis_module][vis] - personal module for data visualization
         + [stat_functions][stat] - personal module for work with statistical analysis
 
+## Author contributions:
+Conceptualization, project administration and supervision: MT. Investigation and methodology: MT, JH, J-MB, VK, MU, US, EC. Data curation: MT, EC. Validation: MT, JH, J-MB, VK, MU, EV. Writing – original draft: EC. Writing, review and editing: EC, MT. All authors reviewed and approved the final version of the paper.  
+
+## Competing interests:   
+The authors declare that they have no conflict of interest. 
+  
+## Financial support:
+This research was funded by the German Research Foundation (DFG) through grant number 401857120  
+  
+  
   
 [cesr]: https://github.com/EvgenyChur/PT-VAINT/blob/main/CESR_project.py  
 [main]: https://github.com/EvgenyChur/PT-VAINT/blob/main/stat_module.py  
