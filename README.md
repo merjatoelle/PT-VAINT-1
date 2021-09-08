@@ -10,7 +10,7 @@ Evgenii Churiulin<sup>1</sup>, Vladimir Kopeikin<sup>2</sup>, Markus Übel<sup>3
 - German Weather Service, 63067 Offenbach am Main, Germany
 - Federal Office of Meteorology and Climatology, Zurich, CH-8058, Switzerland
 
-<em>Correspondence to: Evgenii Churiulin (evgenychur@uni-kassel.de)<em>
+<em><strong>Correspondence to: Evgenii Churiulin (evgenychur@uni-kassel.de)</strong></em>
 </p>
 
 <p align="justify">
