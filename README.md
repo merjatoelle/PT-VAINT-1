@@ -6,7 +6,7 @@
 
 ![rstom](https://github.com/EvgenyChur/PT-VAINT/blob/main/RSTOM.jpg)
 
-  
+<p align="justify">  
 ## The repository contains:
 1. The new module with stomatal resistance and leaf photosyntesis for CCLM<sub>v3.5</sub>
     * [src_phenology.f90][phen]
@@ -52,3 +52,4 @@
 [GL_pyt]: https://github.com/EvgenyChur/PT-VAINT/blob/main/GLEAM_python.sh
 [data]: https://github.com/EvgenyChur/PT-VAINT/blob/main/data_phenology.f90
 [phen]: https://github.com/EvgenyChur/PT-VAINT/blob/main/src_phenology.f90
+</p>
