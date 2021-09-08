@@ -13,4 +13,7 @@
 3. The two scipts for work with COSMO-CLM results:
     * main.sh
     * bonus.sh
-4. The new ***Python*** module
+4. The new *Python* project, with statistical and visualization modules:
+    * CESR_project.py - the main programm for verification of COSMO-CLM results
+    * stat_module.py - the main programm for statistical analysis ana visualization of COSMO-CLM results:
+        + h
