@@ -17,7 +17,7 @@
     * bonus.sh - postprocessing of COSMO-CLM parameters for additional tests, future developments
 4. The new ***Python*** project, with statistical and visualization modules:
     * [CESR_project.py][cesr] and [stat_module][main] - the main programms for verification, statistical analysis and visualization of COSMO-CLM results:  
-        + cosmo_data.py - personal module for downloading and preparing COSMO data
+        + [cosmo_data.py][cosmo] - personal module for downloading and preparing COSMO data
         + [fluxnet_data.py][flux] - personal module for downloading and preparing FLUXNET and EURONET data
         + [insitu_data.py][insitu] - personal module for downloading and preparing data from Linden and Lindenberg
         + [reanalysis_data][rean] - personal module for downloading and preparing reanalysis data from E-OBS, HYRAS and GLEAM datasets
@@ -34,3 +34,4 @@
 [flux]: https://github.com/EvgenyChur/PT-VAINT/blob/main/fluxnet_data.py
 [insitu]: https://github.com/EvgenyChur/PT-VAINT/blob/main/insitu_data.py
 [rean]: https://github.com/EvgenyChur/PT-VAINT/blob/main/reanalysis_data.py  
+[cosmo]: https://github.com/EvgenyChur/PT-VAINT/blob/main/cosmo_data.py
