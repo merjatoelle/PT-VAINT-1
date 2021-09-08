@@ -16,12 +16,12 @@
     * [main.sh][main_ini] - postprocessing of COSMO-CLM parameters for verification and analysis 
     * [bonus.sh][bonus] - postprocessing of COSMO-CLM parameters for additional tests, future developments
 4. The preprocessing scripts for HYRAS, E-OBS, GLEAM datasets:
-    * EOBS_domain - interpolation of E-OBS data to COSMO-CLM grid
-    * HYRAS_domain - interpolation of HYRAS data to COSMO-CLM grid
-    * GLEAM_domain - interpolation of GLEAM data to COSMO-CLM grid
-    * EOBS_python - preprocessing E-OBS data for CESR_project.py and stat_module.py
-    * HYRAS_python - preprocessing HYRAS data for CESR_project.py and stat_module.py
-    * GLEAM_python - preprocessing GLEAM data for CESR_project.py and stat_module.py
+    * [EOBS_domain][E_dom] - interpolation of E-OBS data to COSMO-CLM grid
+    * [HYRAS_domain][H_dom] - interpolation of HYRAS data to COSMO-CLM grid
+    * [GLEAM_domain][GL_dom] - interpolation of GLEAM data to COSMO-CLM grid
+    * [EOBS_python][E_py] - preprocessing E-OBS data for CESR_project.py and stat_module.py
+    * [HYRAS_python][H_py] - preprocessing HYRAS data for CESR_project.py and stat_module.py
+    * [GLEAM_python][GL_pyt] - preprocessing GLEAM data for CESR_project.py and stat_module.py
 5. The new ***Python*** project, with statistical and visualization modules:
     * [CESR_project.py][cesr] and [stat_module][main] - the main programms for verification, statistical analysis and visualization of COSMO-CLM results:  
         + [cosmo_data.py][cosmo] - personal module for downloading and preparing COSMO data
@@ -44,3 +44,9 @@
 [cosmo]: https://github.com/EvgenyChur/PT-VAINT/blob/main/cosmo_data.py
 [main_ini]: https://github.com/EvgenyChur/PT-VAINT/blob/main/main_ini.sh
 [bonus]: https://github.com/EvgenyChur/PT-VAINT/blob/main/bonus_ini.sh
+[E_dom]: https://github.com/EvgenyChur/PT-VAINT/blob/main/EOBS_domain.sh
+[H_dom]: https://github.com/EvgenyChur/PT-VAINT/blob/main/HYRAS_domain.sh
+[GL_dom]: https://github.com/EvgenyChur/PT-VAINT/blob/main/GLEAM_domain.sh  
+[E_py]: https://github.com/EvgenyChur/PT-VAINT/blob/main/EOBS_python.sh
+[H_py]: https://github.com/EvgenyChur/PT-VAINT/blob/main/HYRAS_python.sh
+[GL_pyt]: https://github.com/EvgenyChur/PT-VAINT/blob/main/GLEAM_python.sh
