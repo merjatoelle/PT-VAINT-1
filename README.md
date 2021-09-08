@@ -1,2 +1,2 @@
-# PT-VAINT
-Repository with python modules for data analysis, visualization and convertation to different formats
+# A new stomatal resistance, photosynthesis and "two-big leaf" algorithms in the regional climate model COSMO-CLM
+
