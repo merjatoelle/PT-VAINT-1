@@ -79,7 +79,7 @@ This research was funded by the German Research Foundation (DFG) through grant n
 [phen]: https://github.com/EvgenyChur/PT-VAINT/blob/main/src_phenology.f90
 
 
-  
+<p align="justify">  
   This is [an example](http://example.com/ "Title") inline link.
   [This link](http://example.net/) has no title attribute.
   
@@ -88,3 +88,4 @@ an example</a> inline link.</p>
 
 <p><a href="http://example.net/">This link</a> has no
 title attribute.</p>
+</p>
