@@ -8,9 +8,9 @@
 
   
 ## The repository contains:
-1. The new module with stomatal resistance and leaf photosyntesis for CCLM<sub>v3.5</sub>;
-2. The module with constant PFT parameters and other constants for CCLM<sub>v3.5</sub>;
+1. The new module with stomatal resistance and leaf photosyntesis for CCLM<sub>v3.5</sub>
+2. The module with constant PFT parameters and other constants for CCLM<sub>v3.5</sub>
 3. The two scipts for work with COSMO-CLM results:
     * main.sh
     * bonus.sh
-   
+4. The new ***Python*** module
