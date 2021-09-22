@@ -1,9 +1,9 @@
-# A new stomatal resistance, photosynthesis and "two-big leaf" algorithms in the regional climate model COSMO-CLM
+# New stomatal resistance, photosynthesis and "two-big leaf" algorithms in the regional climate model COSMO-CLM
 
 
 ### Authors:
 <p align="justify">
-Evgenii Churiulin<sup>1</sup>, Vladimir Kopeikin<sup>2</sup>, Markus Übel<sup>3</sup>, Jürgen Helmert<sup>3</sup>, Jean M. Bettems<sup>4</sup>, Merja H. Tölle<sup>1</sup>
+Evgenii Churiulin<sup>1</sup>, Vladimir Kopeikin<sup>2</sup>, Markus Übel<sup>3</sup>, Jürgen Helmert<sup>3</sup>, Jean-Marie Bettems<sup>4</sup>, Merja Helena Tölle<sup>1</sup>
 
 - Center for Environmental Systems Research, University of Kassel, 34117 Kassel, Germany
 - Hydrometcenter of Russia, 123242 Moscow, Russia
