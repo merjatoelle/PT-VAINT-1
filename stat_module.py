@@ -819,10 +819,10 @@ elif mode == 7:
     tmax_st_orig     = isd.stat_tepm(df_cosmo_orig['TMAX_2M'], tmax  , 'COSMO_TMAX'         )
     tmin_st_orig     = isd.stat_tepm(df_cosmo_orig['TMIN_2M'], tmin  , 'COSMO_TMIN'         )
     ts_st_orig       = isd.stat_tepm(df_cosmo_orig['T_S']    , ts    , 'COSMO_TS'           )
-    aevap_st_orig_a  = isd.stat_tepm(df_cosmo_orig['AEVAP_S'], gl_Eta, 'COSMO_Eta'          )  # was gl_Epa
-    aevap_st_orig_b  = isd.stat_tepm(df_cosmo_orig['AEVAP_S'], gl_Etb, 'COSMO_Etb'          )  # was gl_Epb
-    zverbo_st_orig_a = isd.stat_tepm(df_cosmo_orig['ZVERBO'] , gl_Epa, 'COSMO_Epa'          )  # was gl_Eta
-    zverbo_st_orig_b = isd.stat_tepm(df_cosmo_orig['ZVERBO'] , gl_Epb, 'COSMO_Epb'          )  # was gl_Etb
+    aevap_st_orig_a  = isd.stat_tepm(df_cosmo_orig['AEVAP_S'], gl_Eta, 'COSMO_Eta'          )  
+    aevap_st_orig_b  = isd.stat_tepm(df_cosmo_orig['AEVAP_S'], gl_Etb, 'COSMO_Etb'          )  
+    zverbo_st_orig_a = isd.stat_tepm(df_cosmo_orig['ZVERBO'] , gl_Epa, 'COSMO_Epa'          )  
+    zverbo_st_orig_b = isd.stat_tepm(df_cosmo_orig['ZVERBO'] , gl_Epb, 'COSMO_Epb'          )  
     ashfl_st_orig    = isd.stat_tepm(df_cosmo_orig['ASHFL_S'], sh_stat,'COSMO_ASHFL_FL'     )
     alhfl_st_orig    = isd.stat_tepm(df_cosmo_orig['ALHFL_S'], lh_stat,'COSMO_ALHFL_EU'     )
     # Statistic for COSMO_v3.5 according to in-situ, reanalysis and satellite data
