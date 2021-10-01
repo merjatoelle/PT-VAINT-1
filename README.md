@@ -1,4 +1,4 @@
-# New stomatal resistance, photosynthesis and "two-big leaf" algorithms in the regional climate model COSMO-CLM
+# Stomatal resistance, photosynthesis and "two-big leaf" algorithms in the regional climate model COSMO-CLM
 
 
 ### Authors:
