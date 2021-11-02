@@ -14,7 +14,6 @@ Evgenii Churiulin<sup>1</sup>, Vladimir Kopeikin<sup>2</sup>, Markus Übel<sup>3
 
 
 
-![rstom](https://github.com/EvgenyChur/PT-VAINT/blob/main/RSTOM.jpg)
 
  
 ## The repository contains:
