@@ -1,23 +1,20 @@
-# Stomatal resistance, photosynthesis and "two-big leaf" algorithms in the regional climate model COSMO-CLM
-
+# The new programming complex for the vegetation scheme of COSMO-CLM model and its analysis and visualization.
 
 ### Authors:
 <p align="justify">
-Evgenii Churiulin<sup>1</sup>, Vladimir Kopeikin<sup>2</sup>, Markus Übel<sup>3</sup>, Jürgen Helmert<sup>3</sup>, Jean-Marie Bettems<sup>4</sup>, Merja Helena Tölle<sup>1</sup>
+E. Churiulin<sup>1</sup>, V. Kopeikin<sup>2</sup>, M. Übel<sup>3</sup>, J. Helmert<sup>3</sup>, J.M. Bettems<sup>4</sup>, M.H. Tölle<sup>1</sup>
 
 1. Center for Environmental Systems Research, University of Kassel, 34117 Kassel, Germany
 2. Hydrometcenter of Russia, 123242 Moscow, Russia
 3. German Weather Service, 63067 Offenbach am Main, Germany
 4. Federal Office of Meteorology and Climatology, Zurich, CH-8058, Switzerland
 
-<em><strong>Correspondence to: Evgenii Churiulin (evgenychur@uni-kassel.de)</strong></em>
-
+<em><strong>Correspondence to: E. Churiulin (evgenychur@uni-kassel.de)</strong></em>
 
 ## The repository description:
 <p align="justify">
-  The repository has the personal scripts which were created for the improvements of the simplified vegetation scheme of the regional climate model <a href="https://wiki.coast.hzg.de/clmcom ">COSMO-CLM</a>. The new updates have the modern algorithm based on the physically Ball-Berry approach coupled with photosynthesis processes based on Farquhar and Collatz models for C<sub>3</sub> and C<sub>4</sub> plants and the "two-big leaf" approach for the photosyntetic active radiation. Moreover, there are scripts, in repository, designed to postprocess of COSMO-CLM data, process of satellite and observational data, verify and visualise experimental results. 
+  The repository has the personal programing modules which were created for the improvements of the simplified vegetation scheme of the regional climate model <a href="https://wiki.coast.hzg.de/clmcom ">COSMO-CLM</a>. The new updates have the modern algorithm based on the physically Ball-Berry approach coupled with photosynthesis processes based on Farquhar and Collatz models for C<sub>3</sub> and C<sub>4</sub> plants and the "two-big leaf" approach for the photosyntetic active radiation. Moreover, there are scripts, in repository, designed to postprocess of COSMO-CLM data, process of satellite and observational data, verify and visualise experimental results. 
 </p>
-
 
 ## The repository contains:
 1. The new module with stomatal resistance and leaf photosyntesis for CCLM<sub>v3.5</sub>
@@ -54,7 +51,6 @@ The authors declare that they have no conflict of interest.
 ## Financial support:
 This research was funded by the German Research Foundation (DFG) through grant number 401857120  
   
- 
   
 [cesr]: https://github.com/EvgenyChur/PT-VAINT/blob/main/CESR_project.py  
 [main]: https://github.com/EvgenyChur/PT-VAINT/blob/main/stat_module.py  
