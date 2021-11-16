@@ -4,20 +4,18 @@ The vis_module is the main program for data visualization of PT VAINT.
 
 The progam contains subroutines:
     
-    # Section for plots based on timesteps with mothly, yearly and next time intervals
-    plot_2  ---> Option for 2 lines in a single plot
-    plot_3  ---> Option for 3 lines in a single plot
-    plot_4  ---> Option for 4 lines in a single plot
-    plot_5  ---> Option for 5 lines in a single plot
-    plot_6  ---> Option for 6 lines in a single plot
-    plot_7  ---> Option for 7 lines in a single plot
-
+    # Section for plots line plots
+    plots2  ---> Option for 2 lines in a single plot
+    plots3  ---> Option for 3 lines in a single plot
+    plots4  ---> Option for 4 lines in a single plot
+    plots5  ---> Option for 5 lines in a single plot
+    plots6  ---> Option for 6 lines in a single plot
+    plots7  ---> Option for 7 lines in a single plot
+    lplots  ---> function with setting parameters (montly, daily data)
+    dplots  ---> function with setting parameters (hourly        data)
+    
+    
     # Section for plots based on timesteps with hourly and daily time intervals
-    plot_2d ---> Option for 2 lines in a single plot
-    plot_3d ---> Option for 3 lines in a single plot
-    plot_4d ---> Option for 4 lines in a single plot
-    plot_5d ---> Option for 5 lines in a single plot
-    plot_6d ---> Option for 6 lines in a single plot
     
     # Section for plots based on mean (climatic) values
     get_m      ---> annual cycly
@@ -78,29 +76,6 @@ minorFormatter_3 = FormatStrFormatter('%.1f')
 minorLocator_4   = AutoMinorLocator (n=5)
 minorFormatter_4 = FormatStrFormatter('%.1f')
 
-# Plot 6
-minorLocator_5   = AutoMinorLocator (n=5)
-minorFormatter_5 = FormatStrFormatter('%.1f')
-
-# Plot 2d
-minorLocator_6   = AutoMinorLocator (n=5)
-minorFormatter_6 = FormatStrFormatter('%.1f')
-
-# Plot 3d
-minorLocator_7   = AutoMinorLocator (n=4)
-minorFormatter_7 = FormatStrFormatter('%.1f')
-
-# Plot 4d
-minorLocator_8   = AutoMinorLocator (n=5)
-minorFormatter_8 = FormatStrFormatter('%.1f')
-
-# Plot 5d
-minorLocator_9   = AutoMinorLocator (n=5)
-minorFormatter_9 = FormatStrFormatter('%.1f')
-
-#Plot 6d
-minorLocator_10   = AutoMinorLocator (n=5)
-minorFormatter_10 = FormatStrFormatter('%.1f')
 
 
 years = mdates.YearLocator() #every year
@@ -109,55 +84,121 @@ yearFmt = mdates.DateFormatter('%Y')
 #End section
 #------------------------------------------------------------------------------
 
-
+   
 #------------------------------------------------------------------------------
-# plot_2
+# The line plots 
 #------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 2 lines in a single plot 
+# The functions for the visualization of COSMO-CLM results: plots2 - two   lines
+#                                                           plots3 - three lines
+#                                                           plots4 - four  lines   
+#                                                           plots5 - five  lines  
+#                                                           plots6 - six   lines  
+#                                                           plots7 - seven lines  
 #
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                                       dapa plot (timeseries have to have a time
-#                                       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    na_3, na4        - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
+# Input parameters:  ax                      - work area
+#                    par1, par2, par3, par4,                        
+#                    par5, par6, par7        - parameters for visialization  
+#                    leg1, leg2, leg3, leg4, 
+#                    leg5, leg6, leg7        - name of parameters for legend
 #------------------------------------------------------------------------------
-def plot_2(ax, prr_1, prr_2,
-               leg_1, leg_2, 
-               na_3, na_4, date_ind, nst, l_p, 
-               pr_3, pr_4, pr_5, time_step_1, time_step_2): 
 
-    ax.plot(prr_1.index, prr_1, label = leg_1 , color = 'tab:blue'  , 
-                                                    linestyle = '-' )   
-    ax.plot(prr_2.index, prr_2, label = leg_2 , color = 'tab:orange', 
-                                                    linestyle = '--')   
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind, 
-                                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad = 20)
-    ax.legend(loc = l_p, frameon = False)  
+def plots2(ax, par1, par2, leg1, leg2): 
+    ax.plot(par1.index, par1, label = leg1, color = 'blue' , linestyle = '-' )
+    ax.plot(par2.index, par2, label = leg2, color = 'green', linestyle = '-' ) 
+
+def plots3(ax, par1, par2, par3, 
+               leg1, leg2, leg3): 
+    ax.plot(par1.index, par1, label = leg1, color = 'blue' , linestyle = '-' )
+    ax.plot(par2.index, par2, label = leg2, color = 'green', linestyle = '-' )
+    ax.plot(par3.index, par3, label = leg3, color = 'brown', linestyle = '-' ) 
+ 
+def plots4(ax, par1, par2, par3, par4,
+               leg1, leg2, leg3, leg4):    
+    ax.plot(par1.index, par1, label = leg1, color = 'blue' , linestyle = '-' )
+    ax.plot(par2.index, par2, label = leg2, color = 'green', linestyle = '-' )
+    ax.plot(par3.index, par3, label = leg3, color = 'brown', linestyle = '-' ) 
+    ax.plot(par4.index, par4, label = leg4, color = 'red'  , linestyle = '-' )
+
+
+def plots5(ax, par1, par2, par3, par4, par5, 
+               leg1, leg2, leg3, leg4, leg5):
+    ax.plot(par1.index, par1, label = leg1, color = 'blue' , linestyle = '-' )
+    ax.plot(par2.index, par2, label = leg2, color = 'green', linestyle = '-' )
+    ax.plot(par3.index, par3, label = leg3, color = 'brown', linestyle = '-' ) 
+    ax.plot(par4.index, par4, label = leg4, color = 'red'  , linestyle = '-' )
+    ax.plot(par5.index, par5, label = leg5, color = 'black', linestyle = '-.')
+
+
+def plots5_stomata(ax, par1, par2, par3, par4, par5,
+                       leg1, leg2, leg3, leg4, leg5):
+    ax.plot(par1.index,    par1, label = leg1, color = 'blue' , linestyle = '-' )
+    ax.plot(par2.index,    par2, label = leg2, color = 'green', linestyle = '-' ) #, linewidth = 2)
+    ax.plot(par3.index,    par3, label = leg3, color = 'brown', linestyle = '-' ) #, alpha = 0.4 , linewidth = 2) 
+    ax.plot(par4.index,    par4, label = leg4, color = 'red'  , linestyle = '-' ) # , alpha = 0.6 , linewidth = 2)    
+    ax.scatter(par5.index, par5, label = leg5, color = 'black', linewidths = 3.5)    
+
+def plots6(ax, par1, par2, par3, par4, par5, par6,
+               leg1, leg2, leg3, leg4, leg5, leg6):
+
+    ax.plot(par1.index, par1, label = leg1, color = 'blue' , linestyle = '-' )
+    ax.plot(par2.index, par2, label = leg2, color = 'green', linestyle = '-' )
+    ax.plot(par3.index, par3, label = leg3, color = 'brown', linestyle = '-' ) 
+    ax.plot(par4.index, par4, label = leg4, color = 'red'  , linestyle = '-' )
+    ax.plot(par5.index, par5, label = leg5, color = 'black', linestyle = '-.')     
+    ax.plot(par6.index, par6, label = leg6, color = 'black', linestyle = '--')  
+
+def plots7(ax, par1, par2, par3, par4, par5, par6, par7,
+               leg1, leg2, leg3, leg4, leg5, leg6, leg7):     
+    ax.plot(par1.index, par1, label = leg1, color = 'blue' , linestyle = '-' )
+    ax.plot(par2.index, par2, label = leg2, color = 'green', linestyle = '-' )
+    ax.plot(par3.index, par3, label = leg3, color = 'brown', linestyle = '-' ) 
+    ax.plot(par4.index, par4, label = leg4, color = 'red'  , linestyle = '-' )
+    ax.plot(par5.index, par5, label = leg5, color = 'black', linestyle = '-.')     
+    ax.plot(par6.index, par6, label = leg6, color = 'black', linestyle = '--')     
+    ax.plot(par7.index, par7, label = leg7, color = 'pink' , linestyle = '-.') 
+
+#------------------------------------------------------------------------------
+# The line plots settings
+#------------------------------------------------------------------------------
+# The function with settings for line plots:
+# 
+# Input parameters:  ax                   - work area
+#                    plot_title           - plot    label
+#                    y_label              - y axis  label
+#                    period               - period  label
+#                    station              - station label
+#                    leg_pos              - legend position
+#                    y_min, y_max, y_step - limits for y axis
+#                    p_start, p_stop      - limits for x axis
+#------------------------------------------------------------------------------   
+def lplots(ax, plot_title, y_label, period, station, leg_pos, 
+               y_min, y_max, y_step, p_start, p_stop        ):   
+    ax.set_title(plot_title +'\n\n' + f'Station: {station}    {period}', 
+                 color = 'black', fontsize = 14, pad = 20)
+    
+    ax.set_ylabel(y_label, color = 'black', fontsize = 14, labelpad = 20)
+    ax.legend(loc = leg_pos, frameon = False)  
+    # Get y ticks parameters
     ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
+    ax.set_yticks(np.arange(y_min, y_max, y_step))
+    ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
+                   left = True, right = True  , labelleft ='on', labelright = 'on')
+    ax.tick_params(axis = 'y' , which ='minor', bottom = True  , top = False,
+                   left = True, right = True  , labelleft ='on', labelright = 'on')    
+    
+    # Get x ticks parameters
     ax.get_xticks()
-    ax.tick_params(axis ='y'  , which = 'major', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis ='y'  , which ='minor' , bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
+    ax.set_xlim(p_start, p_stop)
+    
     # Gap betweet axis
     for tick in ax.get_xaxis().get_major_ticks():
         tick.set_pad(12.)
         tick.label1 = tick._get_text1()
-        
+    
+    # Additional parameters for axis    
     xax = ax.xaxis
     yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
+
     xftm = mdates.DateFormatter('%Y-%m-%d')
     ax.xaxis.set_major_formatter(xftm)
     ax.xaxis.set_minor_locator(days)
@@ -170,68 +211,65 @@ def plot_2(ax, prr_1, prr_2,
         label.set_fontsize(14)
     yax.set_minor_locator(minorLocator_1)
     yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True, which ='major', color = 'k', linestyle = 'solid', alpha = 0.5)
+    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', 
+                                                             alpha = 0.2)
+    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed',  
+                                                             alpha = 0.2) 
+    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' ,
+                                                             alpha = 0.5)
 
-# end def plot_2
-#------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------
-# plot_3
+# The line plots settings
 #------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 3 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3              dapa plot (timeseries have to have a time
-#                                       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3       
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------       
-def plot_3(ax, prr_1, prr_2, prr_3, 
-               leg_1, leg_2, leg_3,
-               na_3, na_4, date_ind, nst, l_p,
-               pr_3, pr_4, pr_5, time_step_1, time_step_2): 
+# The function with settings for line plots:
+# 
+# Input parameters:  ax                   - work area
+#                    plot_title           - plot    label
+#                    y_label              - y axis  label
+#                    period               - period  label
+#                    station              - station label
+#                    leg_pos              - legend position
+#                    y_min, y_max, y_step - limits for y axis
+#                    p_start, p_stop      - limits for x axis
+#------------------------------------------------------------------------------  
+def dplots(ax, plot_title, y_label, x_label, period, station ,  
+               leg_pos, y_min, y_max, y_step, p_start, p_stop):
     
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'tab:blue'  , linestyle = '-' )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'tab:orange', linestyle = '--')
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'tab:green' , linestyle = '-.')
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind,
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad = 20)
-    ax.legend(loc = l_p, frameon=False)  
+    ax.set_title(plot_title +'\n\n' + f'Station: {station}    {period}', 
+                 color = 'black', fontsize = 14, pad = 20)    
+    ax.set_ylabel(y_label, color = 'black', fontsize = 14, labelpad = 20)
+    ax.set_xlabel(x_label, color = 'black', fontsize = 14, labelpad = 20)
+    # Legend parameters
+    ax.legend(loc = leg_pos, frameon=False)
+    # Get y ticks parameters
     ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
+    ax.set_yticks(np.arange(y_min, y_max, y_step))
+    ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
+                   left = True, right = True  , labelleft ='on', labelright = 'on')
+    ax.tick_params(axis = 'y' , which ='minor', bottom = True  , top = False,
+                   left = True, right = True  , labelleft ='on', labelright = 'on')       
+    
+    # Get x ticks parameters
     ax.get_xticks()
-    ax.tick_params(axis ='y'  , which ='major', bottom    = True, top = False,
-                   left = True, right = True  , labelleft ='on' , labelright = 'on')
-    ax.tick_params(axis ='y'  , which ='minor', bottom    = True, top = False,
-                   left = True, right = True  , labelleft ='on' , labelright = 'on')
+    ax.set_xlim(p_start, p_stop)    
+    
     # Gap betweet axis
     for tick in ax.get_xaxis().get_major_ticks():
         tick.set_pad(12.)
         tick.label1 = tick._get_text1()
-        
+
+    # Additional parameters for axis  
     xax = ax.xaxis
     yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%Y-%m-%d')
+    
+    xftm = mdates.DateFormatter('%H')
     ax.xaxis.set_major_formatter(xftm)
-    ax.xaxis.set_minor_locator(days)
+    #ax.xaxis.set_minor_locator(days)
     for label in ax.xaxis.get_ticklabels():
         label.set_color('black')
-        label.set_rotation(15)
-        label.set_fontsize(12)
+        label.set_rotation(0)
+        label.set_fontsize(16)
     for label in ax.yaxis.get_ticklabels():
         label.set_color('black')
         label.set_fontsize(14)
@@ -239,48 +277,38 @@ def plot_3(ax, prr_1, prr_2, prr_3,
     yax.set_minor_formatter(NullFormatter())
     xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
     yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True,  which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)
+    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)  
 
-# end def plot_3
-#------------------------------------------------------------------------------
-    
+
 
 #------------------------------------------------------------------------------
-# plot_4
+# The line plots settings -only for stomatal resistance data
 #------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 4 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                                       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4       
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------
-def plot_4(ax, prr_1, prr_2, prr_3, prr_4,
-               leg_1, leg_2, leg_3, leg_4,
-               na_3, na_4, date_ind, nst, l_p, 
-               pr_3, pr_4, pr_5, time_step_1, time_step_2): 
+# The function with settings for line plots:
+# 
+# Input parameters:  ax                   - work area
+#                    plot_title           - plot    label
+#                    y_label              - y axis  label
+#                    period               - period  label
+#                    station              - station label
+#                    leg_pos              - legend position
+#                    y_min, y_max, y_step - limits for y axis
+#                    p_start, p_stop      - limits for x axis
+#------------------------------------------------------------------------------  
+def lplots_stomata(ax, y_label, nst, leg_pos,
+                       y_min, y_max,  y_step, station_plot): 
+      
+    ax.set_title(f'Domain: {nst}    Station: {station_plot}', 
+                 color = 'black', fontsize = 18, pad = 20)
     
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue' , linestyle = '-')
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'green', linestyle = '-')
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'brown', linestyle = '-') 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'  , linestyle = '-')
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind, 
-                 color = 'black', fontsize = 14, pad = 20)
+    ax.set_ylabel(y_label, color = 'black', fontsize = 16, labelpad = 20)
     
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad=20)
-    ax.legend(loc = l_p, frameon=False)  
+    font = font_manager.FontProperties(family = 'Arial', style  = 'normal', size = 16)    
+        
+    ax.legend(prop = font, loc = leg_pos)
+    
     ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
+    ax.set_yticks(np.arange(y_min, y_max, y_step))
     ax.get_xticks()
     ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
                    left = True, right = True  , labelleft ='on', labelright = 'on')
@@ -294,608 +322,23 @@ def plot_4(ax, prr_1, prr_2, prr_3, prr_4,
     xax = ax.xaxis
     yax = ax.yaxis
     #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
+    #ax.set_xlim(p_start, p_stop)
     xftm = mdates.DateFormatter('%Y-%m-%d')
     ax.xaxis.set_major_formatter(xftm)
     ax.xaxis.set_minor_locator(days)
     for label in ax.xaxis.get_ticklabels():
         label.set_color('black')
         label.set_rotation(15)
-        label.set_fontsize(12)
+        label.set_fontsize(16)
     for label in ax.yaxis.get_ticklabels():
         label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_3)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)
-
-# end def plot_4
-#------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------
-# plot_5
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 5 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                    prr_5              index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4      
-#                    leg_5 
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------   
-def plot_5(ax, prr_1, prr_2, prr_3, prr_4, prr_5, 
-               leg_1, leg_2, leg_3, leg_4, leg_5,
-               na_3, na_4, date_ind, nst, l_p,
-               pr_3, pr_4, pr_5, time_step_1, time_step_2): 
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue'  , linestyle = '-' )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'green' , linestyle = '-' )
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'brown' , linestyle = '-' ) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'   , linestyle = '-' )
-    ax.plot(prr_5.index, prr_5, label = leg_5, color = 'black' , linestyle = '-.')
-   
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind, 
-                 color = 'black', fontsize = 14, pad = 20)
-    
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad=20)
-    ax.legend(loc = l_p, frameon=False)  
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which ='minor', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-        
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%Y-%m-%d')
-    ax.xaxis.set_major_formatter(xftm)
-    ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(15)
-        label.set_fontsize(12)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
+        label.set_fontsize(18)
     yax.set_minor_locator(minorLocator_4)
     yax.set_minor_formatter(NullFormatter())
     xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
     yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
     ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)
-    
-# end def plot_5
-#------------------------------------------------------------------------------ 
-    
 
-
-
-#------------------------------------------------------------------------------
-# plot_6
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 6 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                    prr_5, prr_6       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4      
-#                    leg_5, leg_6 
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------  
-def plot_6(ax, prr_1, prr_2, prr_3, prr_4, prr_5, prr_6,
-               leg_1, leg_2, leg_3, leg_4, leg_5, leg_6,
-               na_3, na_4, date_ind, nst, l_p,
-               pr_3, pr_4, pr_5, time_step_1, time_step_2): 
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue' , linestyle = '-'  )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'green', linestyle = '-'  )
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'brown', linestyle = '-'  ) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'  , linestyle = '-'  )
-    ax.plot(prr_5.index, prr_5, label = leg_5, color = 'black', linestyle = '-.' )      
-    ax.plot(prr_6.index, prr_6, label = leg_6, color = 'black', linestyle = '--' )    
-      
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind, 
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad = 20)
-    ax.legend(loc = l_p, frameon=False)  
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which ='minor', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-        
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%Y-%m-%d')
-    ax.xaxis.set_major_formatter(xftm)
-    ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(15)
-        label.set_fontsize(12)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_5)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True,  which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)
-
-# end def plot_6
-#------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------
-# plot_7
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 6 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                    prr_5, prr_6       index and appropriate values)
-#                    prr_7              index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4      
-#                    leg_5, leg_6 
-#                    leg_7
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------  
-def plot_7(ax, prr_1, prr_2, prr_3, prr_4, prr_5, prr_6, prr_7,
-               leg_1, leg_2, leg_3, leg_4, leg_5, leg_6, leg_7,
-               na_3, na_4, date_ind, nst, l_p,
-               pr_3, pr_4, pr_5, time_step_1, time_step_2): 
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue' , linestyle = '-'  )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'green', linestyle = '-'  )
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'brown', linestyle = '-'  ) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'  , linestyle = '-'  )
-    ax.plot(prr_5.index, prr_5, label = leg_5, color = 'black', linestyle = '-.' )      
-    ax.plot(prr_6.index, prr_6, label = leg_6, color = 'black', linestyle = '--' )     
-    
-    ax.plot(prr_7.index, prr_7, label = leg_7, color = 'yellow') 
-      
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind,
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad = 20)
-    ax.legend(loc = l_p, frameon=False)  
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which ='minor', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    # Gap betweet axis 
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-        
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%Y-%m-%d')
-    ax.xaxis.set_major_formatter(xftm)
-    ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(15)
-        label.set_fontsize(12)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_5)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)
-# end def plot_7
-#------------------------------------------------------------------------------
-
-
-# For daily task
-
-
-#------------------------------------------------------------------------------
-# plot_2d
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 2 lines in a single plot 
-#
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                                       dapa plot (timeseries have to have a time
-#                                       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    na_3, na4        - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------
-def plot_2d(ax, prr_1, prr_2,
-                leg_1, leg_2, 
-                na_3, na_4, na_5, date_ind, nst, l_p, 
-                pr_3, pr_4, pr_5, time_step_1, time_step_2):    
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'tab:blue'  , linestyle = '-' )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'tab:orange', linestyle = '--')
-    #ax.set_title(na_3 +'\n\n' + date_ind, color = 'black', fontsize = 14, y = 1.02)
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind,
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad=20)
-    ax.set_xlabel(na_5, color = 'black', fontsize = 14, labelpad=20)
-    ax.legend(loc = l_p, frameon=False)
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which ='minor', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-  
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%H')
-    ax.xaxis.set_major_formatter(xftm)
-    #ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(0)
-        label.set_fontsize(16)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_6)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)
-# end def plot_2d
-#------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------
-# plot_3
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 3 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3              dapa plot (timeseries have to have a time
-#                                       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3       
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------ 
-
-
-def plot_3d(ax, prr_1, prr_2, prr_3,
-                leg_1, leg_2, leg_3,
-                na_3, na_4, na_5, date_ind, nst, l_p,
-                pr_3, pr_4, pr_5, time_step_1, time_step_2):   
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'tab:blue'  , linestyle = '-' )   
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'tab:orange', linestyle = '--')    
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'tab:green' , linestyle = '-.')
-    
-    #ax.set_title(na_3 +'\n\n' + date_ind, color = 'black', fontsize = 14, y = 1.02)
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind, 
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad=20)
-    ax.set_xlabel(na_5, color = 'black', fontsize = 14, labelpad=20)
-    ax.legend(loc = l_p, frameon=False)
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which = 'major', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which = 'minor', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-  
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%H')
-    ax.xaxis.set_major_formatter(xftm)
-    #ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(0)
-        label.set_fontsize(16)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_7)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)
-# end def plot_3d
-#------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------
-# plot_4
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 4 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                                       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4       
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------
-def plot_4d(ax, prr_1, prr_2, prr_3, prr_4,
-                leg_1, leg_2, leg_3, leg_4,
-                na_3, na_4, na_5, date_ind, nst, l_p,
-                pr_3, pr_4, pr_5, time_step_1, time_step_2): 
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue'  , linestyle = '-' )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'orange', linestyle = '--')
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'green' , linestyle = '-.', 
-                                                                     alpha = 0.4 ) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'   , linestyle = ':' , 
-                                                                     alpha = 0.6 )    
-    
-    #ax.set_title(na_3 +'\n\n' + date_ind, color = 'black', fontsize = 14, y = 1.02)
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind,
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad = 20)
-    ax.set_xlabel(na_5, color = 'black', fontsize = 14, labelpad = 20)
-    ax.legend(loc = l_p, frameon=False)
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which = 'major', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which = 'minor', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-  
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%H')
-    ax.xaxis.set_major_formatter(xftm)
-    #ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(0)
-        label.set_fontsize(16)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_8)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)    
-# end def plot_4d
-#------------------------------------------------------------------------------
-    
-#------------------------------------------------------------------------------
-# plot_5
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 5 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                    prr_5              index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4      
-#                    leg_5 
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------    
-def plot_5d(ax, prr_1, prr_2, prr_3, prr_4, prr_5, 
-                leg_1, leg_2, leg_3, leg_4, leg_5,
-                na_3, na_4, na_5, date_ind, nst,
-                l_p, pr_3, pr_4, pr_5, time_step_1, time_step_2):    
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue'     , linestyle = '-' )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'orange'   , linestyle = '--')
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'green'    , linestyle = '-.',
-                                                                        alpha = 0.4 ) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'      , linestyle = ':' ,
-                                                                        alpha = 0.6 )     
-    ax.plot(prr_5.index, prr_5, label = leg_5, color = 'tab:brown', linestyle = '-.')
-    
-    #ax.set_title(na_3 +'\n\n' + date_ind, color = 'black', fontsize = 14, y = 1.02)
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind, 
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad = 20)
-    ax.set_xlabel(na_5, color = 'black', fontsize = 14, labelpad = 20)
-    ax.legend(loc = l_p, frameon=False)
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which = 'major', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which = 'minor', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-  
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%H')
-    ax.xaxis.set_major_formatter(xftm)
-    #ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(0)
-        label.set_fontsize(16)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_9)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)  
-# end def plot_5d
-#------------------------------------------------------------------------------
-
-#------------------------------------------------------------------------------
-# plot_6
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 6 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                    prr_5, prr_6       index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4      
-#                    leg_5, leg_6 
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------ 
-def plot_6d(ax, prr_1, prr_2, prr_3, prr_4, prr_5, prr_6, 
-                leg_1, leg_2, leg_3, leg_4, leg_5, leg_6,                
-                na_3, na_4, na_5, date_ind, nst,
-                l_p, pr_3, pr_4, pr_5, time_step_1, time_step_2):    
-    
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue'  , linestyle = '-' )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'orange', linestyle = '--')
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'green' , linestyle = '-.', 
-                                                                     alpha = 0.4 ) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'   , linestyle = ':' ,
-                                                                     alpha = 0.6 )       
-    ax.plot(prr_5.index, prr_5, label = leg_5, color = 'tab:brown' , linestyle = '-.')    
-    ax.plot(prr_6.index, prr_6, label = leg_6, color = 'lime'      , linestyle = '-' )    
-    
-    #ax.set_title(na_3 +'\n\n' + date_ind, color = 'black', fontsize = 14, y = 1.02)
-    ax.set_title(na_3 +'\n\n' + 'Station: ' + nst + '    ' + date_ind,
-                 color = 'black', fontsize = 14, pad = 20)
-    ax.set_ylabel(na_4, color = 'black', fontsize = 14, labelpad = 20)
-    ax.set_xlabel(na_5, color = 'black', fontsize = 14, labelpad = 20)
-    ax.legend(loc = l_p, frameon=False)
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which = 'major', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which = 'minor', bottom = True  , top = False,
-                   left = True, right = True   , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-  
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%H')
-    ax.xaxis.set_major_formatter(xftm)
-    #ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(0)
-        label.set_fontsize(16)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(14)
-    yax.set_minor_locator(minorLocator_10)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True , which = 'major', color = 'k'   , linestyle = 'solid' , alpha = 0.5)  
-# end def plot_6d
-#------------------------------------------------------------------------------
 
 
 # Statistical sections
@@ -937,11 +380,11 @@ def get_m(df, df2, df3, df4, df5, param, name_2, data_out, y1, y2, step, status)
     elif param == 'ASHFL_S': 
         plt.plot(df5.index, df5['H'] , label = 'OBS', color = 'black', linestyle = ':')            
     elif param == 'AEVAP_S':
-        plt.plot(df5.index, df5['Ep_a'], label = 'Gleam_v3.5a', color = 'black', linestyle = ':'  )                
-        plt.plot(df5.index, df5['Ep_b'], label = 'Gleam_v3.5b', color = 'black', linestyle = '--' )                  
-    elif param == 'ZVERBO':
         plt.plot(df5.index, df5['Et_a'], label = 'Gleam_v3.5a', color = 'black', linestyle = ':'  )                
-        plt.plot(df5.index, df5['Et_b'], label = 'Gleam_v3.5b', color = 'black', linestyle = '--' )                   
+        plt.plot(df5.index, df5['Et_b'], label = 'Gleam_v3.5b', color = 'black', linestyle = '--' )                  
+    elif param == 'ZVERBO':
+        plt.plot(df5.index, df5['Ep_a'], label = 'Gleam_v3.5a', color = 'black', linestyle = ':'  )                
+        plt.plot(df5.index, df5['Ep_b'], label = 'Gleam_v3.5b', color = 'black', linestyle = '--' )                   
     elif param == 'T_2M': 
         plt.plot(df5.index, df5['T_2M'], label = 'obs', color = 'black', linestyle = ':')
     elif param == 'T_S': 
@@ -1130,15 +573,15 @@ def get_data_m(ax, df_ref, df_v35, df_v45, df_v45e, df_v35a, df_v35b, df_obs,
         x_values2 = np.arange( 0 , len(df_ref) , 1)                            # Define the intervals for x axis (minor ticks)       
     
    
-    ax.plot(df_ref.index , df_ref , label = 'CCLMref'  , color = 'blue'  , linestyle = '-', marker='o' )# ) #, linestyle = '-' )
-    ax.plot(df_v35.index , df_v35 , label = 'CCLMv3.5' , color = 'green' , linestyle = '-', marker='o' ) #) # linestyle = '-' )
-    ax.plot(df_v45.index , df_v45 , label = 'CCLMv4.5' , color = 'brown' , linestyle = '-', marker='o' ) #) #linestyle = '-' )
-    ax.plot(df_v45e.index, df_v45e, label = 'CCLMv4.5e', color = 'red'   , linestyle = '-', marker='o' )
+    ax.plot(df_ref.index , df_ref , label = 'CCLMref'  , color = 'blue'  , linestyle = '-')#, marker='o' )# ) #, linestyle = '-' )
+    ax.plot(df_v35.index , df_v35 , label = 'CCLMv3.5' , color = 'green' , linestyle = '-')#, marker='o' ) #) # linestyle = '-' )
+    ax.plot(df_v45.index , df_v45 , label = 'CCLMv4.5' , color = 'brown' , linestyle = '-')#, marker='o' ) #) #linestyle = '-' )
+    ax.plot(df_v45e.index, df_v45e, label = 'CCLMv4.5e', color = 'red'   , linestyle = '-')#, marker='o' )
 
 
     if param in ('AEVAP_S', 'ZVERBO'):
-        ax.plot(df_v35a.index, df_v35a, label = 'GLEAM v3.5a', color = 'black', linestyle = ':' ,  marker='v' )                #
-        ax.plot(df_v35b.index, df_v35b, label = 'GLEAM v3.5b', color = 'black', linestyle = '--',  marker='v' )                #   
+        ax.plot(df_v35a.index, df_v35a, label = 'GLEAM v3.5a', color = 'black', linestyle = ':' )#,  marker='v' )                #
+        ax.plot(df_v35b.index, df_v35b, label = 'GLEAM v3.5b', color = 'black', linestyle = '--')#,  marker='v' )                #   
     elif param in ('T_2M', 'T_S', 'TMAX_2M', 'TMIN_2M'):
         ax.plot(df_obs.index, df_obs, label = 'OBS', color = 'black', linestyle = ':')
     
@@ -1159,14 +602,14 @@ def get_data_m(ax, df_ref, df_v35, df_v45, df_v45e, df_v35a, df_v35b, df_obs,
     # Set x-axis
     ax.get_xticks()      
     ax.set_xticks(x_values)        
-    #ax.xaxis.set_major_formatter(ticker.NullFormatter())
+    ax.xaxis.set_major_formatter(ticker.NullFormatter())
 
     
     if legendary == True:
         font = font_manager.FontProperties(family = 'Arial', style  = 'normal', size = 14)    
         ax.legend(prop = font, loc='upper center', bbox_to_anchor=(0.5, 2.5),
                   ncol=6, fancybox=True, shadow=False)
-    """        
+            
     if settings == True:
               
         ax.xaxis.set_minor_locator(ticker.FixedLocator([x_values2[0],
@@ -1185,7 +628,7 @@ def get_data_m(ax, df_ref, df_v35, df_v45, df_v45e, df_v35a, df_v35b, df_obs,
                                                             text_values[5]]))
 
         ax.tick_params(axis='both', which='minor', labelsize=16)     
-    """    
+        
     for label in ax.xaxis.get_ticklabels():
         label.set_color('black')
         label.set_rotation(30)
@@ -1196,133 +639,6 @@ def get_data_m(ax, df_ref, df_v35, df_v45, df_v45e, df_v35a, df_v35b, df_obs,
         label.set_horizontalalignment('center')
         
     ax.grid()
-
-
-
-
-
-
-
-"""
-def get_data_m(df_ref, df_v35, df_v45, df_v45e, df_obs,
-               param, name_2, input_region, y1, y2, step, 
-               text_values, data_out):
-
-    
-    # One day step
-    #x_values  = np.arange( 0 , len(df_ref) + 1, 31)                            # Define the intervals for x axis (main ticks)  
-    #x_values2 = np.arange( 14, len(df_ref) + 1, 31)                            # Define the intervals for x axis (minor ticks) 
-    
-    # Two day step
-    x_values  = np.arange( 0 , len(df_ref) + 1, 6)                            # Define the intervals for x axis (main ticks)  
-    x_values2 = np.arange( 3 , len(df_ref) + 1, 6)                            # Define the intervals for x axis (minor ticks) 
-    
-    fig = plt.figure(figsize = (14,10))  
-    ax  = fig.add_subplot(111)
-    
-    plt.plot(df_ref.index , df_ref[param] , label = 'CCLMref'  , color = 'blue'  , linestyle = '-' )
-    plt.plot(df_v35.index , df_v35[param] , label = 'CCLMv3.5' , color = 'green' , linestyle = '-' )
-    plt.plot(df_v45.index , df_v45[param] , label = 'CCLMv4.5' , color = 'brown' , linestyle = '-' )
-    plt.plot(df_v45e.index, df_v45e[param], label = 'CCLMv4.5e', color = 'red'   , linestyle = '-' )
-
-   
-    if param == 'T_2M': 
-        plt.plot(df_obs.index, df_obs['T_2M'], label = 'obs', color = 'black', linestyle = ':')
-    elif param == 'T_S': 
-        plt.plot(df_obs.index, df_obs['TS']  , label = 'obs', color = 'black', linestyle = ':')
-    elif param == 'TMAX_2M': 
-        plt.plot(df_obs.index, df_obs['TMAX'], label = 'obs', color = 'black', linestyle = ':')
-    elif param == 'TMIN_2M': 
-        plt.plot(df_obs.index, df_obs['TMIN'], label = 'obs', color = 'black', linestyle = ':')   
-    elif param == 'AEVAP_S':
-        plt.plot(df_obs.index, df_obs['Ep_a'], label = 'Gleam_v3.5a', color = 'black', linestyle = ':'  )                # 
-        plt.plot(df_obs.index, df_obs['Ep_b'], label = 'Gleam_v3.5b', color = 'black', linestyle = '--' )                #    
-    elif param == 'ZVERBO':
-        plt.plot(df_obs.index, df_obs['Et_a'], label = 'Gleam_v3.5a', color = 'black', linestyle = ':'  )                #
-        plt.plot(df_obs.index, df_obs['Et_b'], label = 'Gleam_v3.5b', color = 'black', linestyle = '--' )               
-        
-    
-    # Settings for plot         
-    ax.legend()
-
-    if input_region == '1':
-        ax.set_title('Daily values of ' + param + ' in June from 2010 to 2015' +
-                     '\n\n' + 'Domain: Parc' + '     ' + 'Station: Rollesbroich',
-                     color = 'black', fontsize = 14, pad = 20) 
-
-    elif input_region == '2':    
-        ax.set_title('Daily values of ' + param + ' in June from 2010 to 2015' +
-                     '\n\n' + 'Domain: Linden'  + '     ' + 'Station: Linden',
-                     color = 'black', fontsize = 14, pad = 20)    
-    else:
-        ax.set_title('Daily values of ' + param + ' in June from 2010 to 2015' +
-                     '\n\n' + 'Domain: Lindenberg' + '     ' + 'Station: Lindenberg',
-                     color = 'black', fontsize = 14, pad = 20)    
-    
-    # Set y-axis    
-    ax.set_ylabel(name_2, color = 'black', fontsize = 14, labelpad = 20)    
-    ax.get_yticks()
-    ax.set_yticks(np.arange(y1, y2, step))
-
-
-    # Set x-axis
-    ax.get_xticks()      
-    #ax.set_xticks(np.arange(0, 180.1, 30))   
-    ax.set_xticks(x_values)
-        
-    ax.xaxis.set_major_formatter(ticker.NullFormatter())
-    #ax.xaxis.set_minor_locator(ticker.FixedLocator([14, 44, 74, 104, 134, 164]))
-    ax.xaxis.set_minor_locator(ticker.FixedLocator([x_values2[0],
-                                                    x_values2[1],
-                                                    x_values2[2],
-                                                    x_values2[3],
-                                                    x_values2[4],
-                                                    x_values2[5],]))
-    
-    
-    ax.xaxis.set_minor_formatter(ticker.FixedFormatter([text_values[0],
-                                                        text_values[1],
-                                                        text_values[2],
-                                                        text_values[3],
-                                                        text_values[4],
-                                                        text_values[5]]))
-    
-    ax.tick_params(axis='both', which='minor', labelsize=16)     
-    
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(30)
-        label.set_fontsize(14)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(18)
-
-    plt.grid()    
-    plt.savefig(data_out + 'test/' + param + '_June.png', format = 'png', dpi = 300)
-    
-    plt.close(fig)        
-    plt.gcf().clear() 
-"""
-#------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 #------------------------------------------------------------------------------
@@ -1438,20 +754,13 @@ def get_u(df_ref, df_v35, df_v45, df_v45e, df_obs, param,
     plt.plot(df_v45.index , df_v45[param] , label = 'CCLMv4.5' , color = 'brown' , linestyle = '-' )
     plt.plot(df_v45e.index, df_v45e[param], label = 'CCLMv4.5e', color = 'red'   , linestyle = '-' ) 
         
-   
     if param == 'ALHFL_S':
         plt.plot(df_obs.index, df_obs['LE'], label = 'OBS', color = 'black', linestyle = ':')
     elif param == 'ASHFL_S': 
         plt.plot(df_obs.index, df_obs['H'] , label = 'OBS', color = 'black', linestyle = ':')          
     else:
         print('no additional parameters')        
-    #elif param == 'AEVAP_S':
-    #    plt.scatter(df6.index, df6['Ep_a']     , label = 'Gleam_v3.5a'   , color = 'magenta', alpha = 0.5)
-    #    plt.scatter(df6.index, df6['Ep_b']     , label = 'Gleam_v3.5b'   , color = 'lime'   , alpha = 0.5)    
-    #elif param == 'ZVERBO':
-    #    plt.scatter(df6.index, df6['Et_a']     , label = 'Gleam_v3.5a'   , color = 'magenta', alpha = 0.5)
-    #    plt.scatter(df6.index, df6['Et_b']     , label = 'Gleam_v3.5b'   , color = 'lime'   , alpha = 0.5)       
-            
+ 
     ax.legend()
 
     time_period = ' from 05.07.2011 to 15.07.2011' + '\n\n'
@@ -1490,9 +799,6 @@ def get_u(df_ref, df_v35, df_v45, df_v45e, df_obs, param,
     plt.close(fig)        
     plt.gcf().clear() 
 #------------------------------------------------------------------------------
-
-
-
 
 #------------------------------------------------------------------------------
 # Subroutine: plot_waves
@@ -1706,105 +1012,3 @@ class TaylorDiagram(object):
 
         return contours
 
-
-   
-    
-   
-    
-   
-    
-#------------------------------------------------------------------------------
-# plot_5
-#------------------------------------------------------------------------------
-# Subroutine for data visualization: Option for 5 lines in a single plot 
-
-# Input parameters:  ax               - work area
-#                    prr_1, prr_2     - the main parameters which are using for
-#                    prr_3, prr_4       dapa plot (timeseries have to have a time
-#                    prr_5              index and appropriate values)
-#                                       index has to be in format - datetime
-#                    leg_1, leg_2     - the name of parameters for legend
-#                    leg_3, leg_4      
-#                    leg_5 
-#                    na_3, na_4       - name of plot (label) and Y-axis
-#                    date_ind         - timeperiod (label)
-#                    nst              - the name of meteorological station(label)
-#                    l_p              - legend position
-#                    pr_3, pr_4, pr_5 - data scales of data range  
-#                    time_step_1      - time start   
-#                    time_step_2      - time stop 
-#------------------------------------------------------------------------------   
-def plot_5_stom(ax, prr_1, prr_2, prr_3, prr_4, prr_5, 
-                leg_1, leg_2, leg_3, leg_4, leg_5,
-                na_3, na_4, date_ind, nst, l_p,
-                pr_3, pr_4, pr_5, time_step_1, time_step_2, station_plot): 
-    """
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'black'  , linestyle = '-'  )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'blue'   , linestyle = '--' , linewidth = 2)
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'green'  , linestyle = '-.' , 
-                                                                      alpha = 0.4 , linewidth = 2) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'    , linestyle = ':'  , 
-                                                                      alpha = 0.6 , linewidth = 2)
-    ax.scatter(prr_5.index, prr_5, label = leg_5, color = 'cyan',  linewidths = 3.5 )
-    
-    # Plot colours for Merja
-    """
-    ax.plot(prr_1.index, prr_1, label = leg_1, color = 'blue' , linestyle = '-'  )
-    ax.plot(prr_2.index, prr_2, label = leg_2, color = 'green', linestyle = '-'  ) #, linewidth = 2)
-    ax.plot(prr_3.index, prr_3, label = leg_3, color = 'brown', linestyle = '-' ) #, alpha = 0.4 , linewidth = 2) 
-    ax.plot(prr_4.index, prr_4, label = leg_4, color = 'red'  , linestyle = '-' ) # , alpha = 0.6 , linewidth = 2)    
-    ax.scatter(prr_5.index, prr_5, label = leg_5, color = 'black',  linewidths = 3.5 )
-    
-
-    
-    ax.set_title('Domain: ' + nst + '    Station: ' + station_plot, 
-                 color = 'black', fontsize = 18, pad = 20)
-    
-    ax.set_ylabel(na_4, color = 'black', fontsize = 16, labelpad = 20)
-    
-    font = font_manager.FontProperties(family = 'Arial', style  = 'normal', size = 16)    
-        
-    ax.legend(prop = font, loc = l_p)
-    
-    ax.get_yticks()
-    ax.set_yticks(np.arange(pr_3, pr_4, pr_5))
-    ax.get_xticks()
-    ax.tick_params(axis = 'y' , which ='major', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    ax.tick_params(axis = 'y' , which ='minor', bottom = True  , top = False,
-                   left = True, right = True  , labelleft ='on', labelright = 'on')
-    # Gap betweet axis
-    for tick in ax.get_xaxis().get_major_ticks():
-        tick.set_pad(12.)
-        tick.label1 = tick._get_text1()
-        
-    xax = ax.xaxis
-    yax = ax.yaxis
-    #ax.set_xticks(pd.date_range(time_step_1, time_step_2, freq = '1M'))
-    #ax.set_xlim(time_step_1, time_step_2)
-    xftm = mdates.DateFormatter('%Y-%m-%d')
-    ax.xaxis.set_major_formatter(xftm)
-    ax.xaxis.set_minor_locator(days)
-    for label in ax.xaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_rotation(15)
-        label.set_fontsize(16)
-    for label in ax.yaxis.get_ticklabels():
-        label.set_color('black')
-        label.set_fontsize(18)
-    yax.set_minor_locator(minorLocator_4)
-    yax.set_minor_formatter(NullFormatter())
-    xax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2)
-    yax.grid(True, which = 'minor', color = 'grey', linestyle = 'dashed', alpha = 0.2) 
-    ax.grid(True, which ='major', color = 'k', linestyle = 'solid', alpha = 0.5)
-    
-# end def plot_5
-#------------------------------------------------------------------------------   
-
-   
-    
-    
-    
-    
-    
-    
