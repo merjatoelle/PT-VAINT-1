@@ -42,12 +42,6 @@ E. Churiulin<sup>1</sup>, V. Kopeikin<sup>2</sup>, M. Übel<sup>3</sup>, J. Helm
         + [stat_functions][stat] - personal module for work with statistical analysis
     * [cartopy_map][cart] - personal script for figure 1a
 
-## Author contributions:
-Conceptualization, project administration and supervision: MT. Investigation and methodology: MT, JH, J-MB, VK, MU, US, EC. Data curation: MT, EC. Validation: MT, JH, J-MB, VK, MU, EV. Writing – original draft: EC. Writing, review and editing: EC, MT. All authors reviewed and approved the final version of the paper.  
-
-## Competing interests:   
-The authors declare that they have no conflict of interest. 
-  
 ## Financial support:
 This research was funded by the German Research Foundation (DFG) through grant number 401857120  
   
