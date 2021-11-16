@@ -5,10 +5,10 @@
 <p align="justify">
 Evgenii Churiulin<sup>1</sup>, Vladimir Kopeikin<sup>2</sup>, Markus Übel<sup>3</sup>, Jürgen Helmert<sup>3</sup>, Jean-Marie Bettems<sup>4</sup>, Merja Helena Tölle<sup>1</sup>
 
-- Center for Environmental Systems Research, University of Kassel, 34117 Kassel, Germany
-- Hydrometcenter of Russia, 123242 Moscow, Russia
-- German Weather Service, 63067 Offenbach am Main, Germany
-- Federal Office of Meteorology and Climatology, Zurich, CH-8058, Switzerland
+1. Center for Environmental Systems Research, University of Kassel, 34117 Kassel, Germany
+2. Hydrometcenter of Russia, 123242 Moscow, Russia
+3. German Weather Service, 63067 Offenbach am Main, Germany
+4. Federal Office of Meteorology and Climatology, Zurich, CH-8058, Switzerland
 
 <em><strong>Correspondence to: Evgenii Churiulin (evgenychur@uni-kassel.de)</strong></em>
 
